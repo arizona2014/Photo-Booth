@@ -1,0 +1,37 @@
+<div class="app-content">
+    <div class="group">
+        <form>
+      <span class="app-action">
+        <button mat-fab (click)="logout()"><mat-icon>exit_to_app</mat-icon></button>
+      </span><br><br>
+            <mat-card>
+                <mat-tab-group >
+                    <mat-tab>
+                        <ul>
+                            <ng-template mat-tab-label>
+                                Take a photo
+                            </ng-template>
+                            <div>Take a photo content</div>
+                        </ul>
+                    </mat-tab>
+                    <mat-tab>
+                        <ul>
+                            <ng-template mat-tab-label>
+                                My photos
+                            </ng-template>
+                            <div>My photos content</div>
+                        </ul>
+                    </mat-tab>
+                    <mat-tab>
+                        <ul>
+                            <ng-template mat-tab-label>
+                                My cards
+                            </ng-template>
+                            <div>My cards content</div>
+                        </ul>
+                    </mat-tab>
+                </mat-tab-group>
+            </mat-card>
+        </form>
+    </div>
+</div>
