@@ -1,4 +1,4 @@
-# Photo-Boot
+# Photo-Booth
 This is an Angular5/Firestore/AngularMaterial application used to make paper cards from photos taken from your phone. The project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.3.
 
 ## Development server
