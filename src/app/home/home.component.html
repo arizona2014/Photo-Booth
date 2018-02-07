@@ -19,15 +19,23 @@
                             <ng-template mat-tab-label>
                                 My photos
                             </ng-template>
-                            <div>My photos content</div>
+                            <div>
+                              <ul>
+                                <li *ngFor="let d of data | async">{{d.name}}</li>
+                              </ul>
+                            </div>
                         </ul>
                     </mat-tab>
                     <mat-tab>
                         <ul>
                             <ng-template mat-tab-label>
-                                My cards
+                              My cards
                             </ng-template>
-                            <div>My cards content</div>
+                            <div>
+                              <ul>
+                                <li *ngFor="let d of data | async">{{d.name}}</li>
+                              </ul>
+                            </div>
                         </ul>
                     </mat-tab>
                 </mat-tab-group>
