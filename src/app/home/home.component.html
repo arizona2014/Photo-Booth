@@ -11,7 +11,18 @@
                             <ng-template mat-tab-label>
                                 Take a photo
                             </ng-template>
-                            <div>Take a photo content</div>
+                            <div>
+
+                                <ack-webcam
+                                        [(ref)]   = "webcam"
+                                        [options] = "options"
+                                        (success) = "onCamSuccess($event)"
+                                        (catch)   = "onCamError($event)"
+                                ></ack-webcam>
+                                <button (click)="genBase64()"> generate base64 </button>
+                                <button (click)="genPostData()"> generate post data </button>
+
+                            </div>
                         </ul>
                     </mat-tab>
                     <mat-tab>
