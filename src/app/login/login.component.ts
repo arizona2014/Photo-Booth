@@ -10,7 +10,7 @@ import { UserComponent } from "../user/user.component";
 })
 export class LoginComponent {
 
-    public user = new UserComponent('','');
+    public user = new UserComponent();
     public errorMsg = '';
 
     constructor(private _service:AuthenticateService) { }
