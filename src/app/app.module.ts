@@ -33,6 +33,8 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AngularFireModule } from "angularfire2";
 import { AngularFirestoreModule } from "angularfire2/firestore";
 import { environment } from '../environments/environment';
+import { WebCamModule } from 'ack-angular-webcam';
+import { HttpModule } from "@angular/http";
 
 @NgModule({
   declarations: [
@@ -46,7 +48,9 @@ import { environment } from '../environments/environment';
     BrowserAnimationsModule,
     FormsModule,
     AppRoutingModule,
+    WebCamModule,
     HttpClientModule,
+    HttpModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     MatButtonModule,
@@ -70,7 +74,7 @@ import { environment } from '../environments/environment';
     MatSelectModule,
     MatDialogModule
   ],
-  providers: [],
+  providers: [ ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
