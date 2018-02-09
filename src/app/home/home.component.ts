@@ -1,14 +1,9 @@
-import { Component, OnInit, NgZone, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthenticateService } from "../login/loginService/authenticate.service";
 import { AngularFirestore } from 'angularfire2/firestore';
 import { WebCamComponent } from 'ack-angular-webcam';
 import { Http } from '@angular/http';
-import { HttpClient } from "@angular/common/http";
-import {
-    AngularFireStorage,
-    AngularFireStorageReference,
-    AngularFireUploadTask
-} from 'angularfire2/storage';
+import { AngularFireStorage } from 'angularfire2/storage';
 
 @Component({
   selector: 'app-home',
@@ -22,14 +17,11 @@ export class HomeComponent implements OnInit {
   private base64: any;
   private basePath = '/images/';
   private storageRef;
-  private filesUploaded: any ;
   private photosUploaded: any ;
 
   constructor(  private _service:AuthenticateService,
                 private _db: AngularFirestore,
-                private http: HttpClient,
-                private storage: AngularFireStorage,
-                public zone: NgZone  ) { }
+                private storage: AngularFireStorage ) { }
 
   //
   genBase64(){
