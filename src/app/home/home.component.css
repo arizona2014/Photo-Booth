@@ -20,3 +20,28 @@ form {
     margin-bottom: 45px;
 
 }
+
+.photos {
+    list-style: none;
+}
+
+.photo {
+    position: relative;
+    width: auto;
+    float: left;
+    margin: 0px 20px 40px;
+    text-align: center;
+}
+
+img {
+    width: 300px;
+    height: auto;
+}
+
+.button-row {
+    position: absolute;
+    background-color: rgba(255, 255, 255, .3);
+    width: 300px;
+    text-align: center;
+    top: 180px;
+}
