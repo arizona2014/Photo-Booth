@@ -35,6 +35,7 @@ import { AngularFirestoreModule } from "angularfire2/firestore";
 import { environment } from '../environments/environment';
 import { WebCamModule } from 'ack-angular-webcam';
 import { HttpModule } from "@angular/http";
+import { AngularFireStorageModule } from 'angularfire2/storage';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { HttpModule } from "@angular/http";
     HttpModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    AngularFireStorageModule,
     MatButtonModule,
     MatToolbarModule,
     MatTooltipModule,
