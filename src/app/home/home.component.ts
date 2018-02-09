@@ -37,42 +37,6 @@ export class HomeComponent implements OnInit {
           .then( base=>this.base64=base)
   }
 
-  getImages() {
-    const filesUploadsRef = this.storageRef.child('images/selfie-1518075808194.png');
-    filesUploadsRef.getDownloadURL().then( (url) => {
-        this.zone.run(() => {
-            this.filesUploaded = url;
-            console.log(this.filesUploaded);
-        });
-      }).catch(function(error) {
-
-          // A full list of error codes is available at
-          // https://firebase.google.com/docs/storage/web/handle-errors
-          switch (error.code) {
-              case 'storage/object_not_found':
-                  // File doesn't exist
-                  console.log("File doesn't exist");
-                  break;
-
-              case 'storage/unauthorized':
-                  // User doesn't have permission to access the object
-                  console.log("User doesn't have permission to access the object");
-                  break;
-
-              case 'storage/canceled':
-                  // User canceled the upload
-                  console.log("User canceled the upload");
-                  break;
-
-              case 'storage/unknown':
-                  // Unknown error occurred, inspect the server response
-                  console.log("Unknown error occurred, inspect the server response");
-                  break;
-          }
-      });
-
-  }
-
   // Callback function triggered when user takes a selfie
   shoot(){
       this.genBase64();
@@ -115,10 +79,6 @@ export class HomeComponent implements OnInit {
       });
   }
 
-  onCamError(err){}
-
-  onCamSuccess(){}
-
   ngOnInit() {
     this.storageRef = this.storage.storage.ref();
     this._service.checkCredentials();
@@ -134,6 +94,18 @@ export class HomeComponent implements OnInit {
   loadPhotosNames() {
     this.photosUploaded = this._db.collection('photos').valueChanges();
   }
+
+  makeCard(e) {
+      console.log(e);
+  }
+
+  deletePhoto(e) {
+      console.log(e);
+  }
+
+  onCamError(err){}
+
+  onCamSuccess(){}
 
   logout(): void {
     this._service.logout();
