@@ -13,11 +13,12 @@ import { AngularFireStorage } from 'angularfire2/storage';
 })
 export class HomeComponent implements OnInit {
 
-  private webcam:WebCamComponent;
-  private base64: any;
-  private basePath = '/images/';
-  private storageRef;
-  private photosUploaded: any ;
+  public webcam:WebCamComponent;
+  public base64: any;
+  public basePath = '/images/';
+  public storageRef;
+  public photosUploaded: any ;
+  public options: any ;
 
   constructor(  private _service:AuthenticateService,
                 private _db: AngularFirestore,
@@ -97,7 +98,7 @@ export class HomeComponent implements OnInit {
 
   onCamError(err){}
 
-  onCamSuccess(){}
+  onCamSuccess(e){}
 
   logout(): void {
     this._service.logout();
