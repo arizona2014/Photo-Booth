@@ -6,6 +6,8 @@ import { AngularFirestore, AngularFirestoreModule } from "angularfire2/firestore
 import { AuthenticateService } from "../login/loginService/authenticate.service";
 import { AngularFireModule } from "angularfire2";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from "@angular/core";
+import { AngularFireStorage } from 'angularfire2/storage';
 
 describe('HomeComponent', () => {
 
@@ -25,7 +27,11 @@ describe('HomeComponent', () => {
     TestBed.configureTestingModule({
       imports: [ RouterTestingModule, MatIconModule, MatTabsModule, MatCardModule, AngularFireModule.initializeApp(firebaseConfig), AngularFirestoreModule, BrowserAnimationsModule  ],
       declarations: [ HomeComponent ],
-      providers: [ AngularFirestore, AuthenticateService ]
+      providers: [ AngularFirestore, AuthenticateService, AngularFireStorage ],
+      schemas: [
+        CUSTOM_ELEMENTS_SCHEMA,
+        NO_ERRORS_SCHEMA
+      ]
     })
     .compileComponents();
   }));
