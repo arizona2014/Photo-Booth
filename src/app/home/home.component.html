@@ -5,11 +5,11 @@
         <button mat-fab (click)="logout()"><mat-icon>exit_to_app</mat-icon></button>
       </span><br><br>
             <mat-card>
-                <mat-tab-group >
+                <mat-tab-group  (selectedTabChange)="tabChange($event)">
                     <mat-tab>
                         <ul>
                             <ng-template mat-tab-label>
-                                Take a photo
+                                Take a selfie
                             </ng-template>
                             <div>
 
@@ -19,8 +19,7 @@
                                         (success) = "onCamSuccess($event)"
                                         (catch)   = "onCamError($event)"
                                 ></ack-webcam>
-                                <button (click)="genBase64()"> generate base64 </button>
-                                <button (click)="genPostData()"> generate post data </button>
+                                <button (click)="shoot()"> Shoot </button>
 
                             </div>
                         </ul>
@@ -31,8 +30,19 @@
                                 My photos
                             </ng-template>
                             <div>
-                              <ul>
-                                <li *ngFor="let d of data | async">{{d.name}}</li>
+                              <ul class="photos">
+                                <li class="photo" *ngFor="let photo of photosUploaded | async">
+                                    <div class="button-row">
+                                        <button (click)="makeCard(photo)" mat-icon-button color="accent">
+                                            <mat-icon aria-label="Make card">card_giftcard</mat-icon>
+                                        </button>
+                                        <button (click)="deletePhoto(photo)" mat-icon-button color="primary">
+                                            <mat-icon aria-label="Delete photo">delete</mat-icon>
+                                        </button>
+                                    </div>
+                                    <span><img [src]="photo.url" /></span>
+                                    <h3>{{photo.name}}</h3>
+                                </li>
                               </ul>
                             </div>
                         </ul>
@@ -44,7 +54,7 @@
                             </ng-template>
                             <div>
                               <ul>
-                                <li *ngFor="let d of data | async">{{d.name}}</li>
+                                  <li *ngFor="let photo of photosUploaded | async">{{photo.name}}</li>
                               </ul>
                             </div>
                         </ul>
