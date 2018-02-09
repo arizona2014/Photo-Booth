@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
@@ -34,7 +34,6 @@ import { AngularFireModule } from "angularfire2";
 import { AngularFirestoreModule } from "angularfire2/firestore";
 import { environment } from '../environments/environment';
 import { WebCamModule } from 'ack-angular-webcam';
-import { HttpModule } from "@angular/http";
 import { AngularFireStorageModule } from 'angularfire2/storage';
 
 @NgModule({
@@ -51,7 +50,6 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
     AppRoutingModule,
     WebCamModule,
     HttpClientModule,
-    HttpModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireStorageModule,
@@ -76,7 +74,10 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
     MatSelectModule,
     MatDialogModule
   ],
-  providers: [ ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA,
+    NO_ERRORS_SCHEMA
+  ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
