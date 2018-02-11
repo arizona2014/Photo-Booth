@@ -40,7 +40,7 @@
                                             <mat-icon aria-label="Delete photo">delete</mat-icon>
                                         </button>
                                     </div>
-                                    <span><img [src]="photo.url" /></span>
+                                    <span><img [src]="photo.url " /></span>
                                     <h3>{{photo.name}}</h3>
                                 </li>
                               </ul>
@@ -54,7 +54,7 @@
                             </ng-template>
                             <div>
                               <ul>
-                                  <li *ngFor="let photo of photosUploaded | async">{{photo.name}}</li>
+                                  <li *ngFor="let photo of photosUploaded  | async">{{photo.name}}</li>
                               </ul>
                             </div>
                         </ul>
