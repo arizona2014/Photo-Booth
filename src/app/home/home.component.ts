@@ -48,11 +48,11 @@ export class HomeComponent implements OnInit {
     };
     // Create the firebase storage reference
     const uploadTask = this.storageRef.child(this.basePath + fileName)
-                           .putString(data, 'data_url')
-                           .then( res => {
-                               console.log(res);
-                               this.addImageInfos(res.metadata.name, res.metadata.downloadURLs[0]);
-                           })
+       .putString(data, 'data_url')
+       .then( res => {
+           console.log(res);
+           this.addImageInfos(res.metadata.name, res.metadata.downloadURLs[0]);
+       })
 
   }
 
@@ -68,15 +68,13 @@ export class HomeComponent implements OnInit {
           console.log("Document written with ID: ", docRef.id);
       })
       .catch(function(error) {
-              console.error("Error adding document: ", error);
+          console.error("Error adding document: ", error);
       });
   }
 
 
   removeImageInfos(id) {
-
       this._db.collection('photos').doc(id).delete();
-
   }
 
   ngOnInit() {
@@ -93,18 +91,12 @@ export class HomeComponent implements OnInit {
 
   loadPhotosNames() {
       this.photosUploaded = this._db.collection('photos').snapshotChanges().map(photos => {
-
-
-
           return photos.map( (a: any) => {
-              const data = a.payload.doc.data();
               const id = a.payload.doc.id;
-
               const name = a.payload.doc._document.data.internalValue.root.left.value.internalValue;
               const url = a.payload.doc._document.data.internalValue.root.value.internalValue;
               return { id, name, url };
           });
-
       });
   }
 
@@ -115,10 +107,11 @@ export class HomeComponent implements OnInit {
   deletePhoto(e) {
       // Create the firebase storage reference
       const deleteTask = this.storageRef.child(this.basePath + e.name);
-      deleteTask.delete().then( res => {
-              console.log(res);
-              this.removeImageInfos(e.id);
-          })
+      deleteTask.delete()
+          .then( res => {
+            console.log(res);
+            this.removeImageInfos(e.id);
+          });
   }
 
   onCamError(err){}
