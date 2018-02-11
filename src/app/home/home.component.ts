@@ -72,6 +72,13 @@ export class HomeComponent implements OnInit {
       });
   }
 
+
+  removeImageInfos(id) {
+
+      this._db.collection('photos').doc(id).delete();
+
+  }
+
   ngOnInit() {
     this.storageRef = this.storage.storage.ref();
     this._service.checkCredentials();
@@ -85,7 +92,20 @@ export class HomeComponent implements OnInit {
   }
 
   loadPhotosNames() {
-    this.photosUploaded = this._db.collection('photos').valueChanges();
+      this.photosUploaded = this._db.collection('photos').snapshotChanges().map(photos => {
+
+
+
+          return photos.map( (a: any) => {
+              const data = a.payload.doc.data();
+              const id = a.payload.doc.id;
+
+              const name = a.payload.doc._document.data.internalValue.root.left.value.internalValue;
+              const url = a.payload.doc._document.data.internalValue.root.value.internalValue;
+              return { id, name, url };
+          });
+
+      });
   }
 
   makeCard(e) {
@@ -93,7 +113,12 @@ export class HomeComponent implements OnInit {
   }
 
   deletePhoto(e) {
-      console.log(e);
+      // Create the firebase storage reference
+      const deleteTask = this.storageRef.child(this.basePath + e.name);
+      deleteTask.delete().then( res => {
+              console.log(res);
+              this.removeImageInfos(e.id);
+          })
   }
 
   onCamError(err){}
