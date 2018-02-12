@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   public basePath = '/images/';
   public storageRef;
   public photosUploaded: any ;
+  public photoOverlay: any ;
   public options: any ;
 
   constructor(  private _service:AuthenticateService,
@@ -102,6 +103,7 @@ export class HomeComponent implements OnInit {
 
   makeCard(e) {
       console.log(e);
+      this.photoOverlay = e.url;
   }
 
   deletePhoto(e) {
