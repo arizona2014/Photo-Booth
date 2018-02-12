@@ -50,11 +50,22 @@
                     <mat-tab>
                         <ul>
                             <ng-template mat-tab-label>
-                              My cards
+                              My effects
                             </ng-template>
-                            <div>
-                              <ul>
-                                  <li *ngFor="let photo of photosUploaded  | async">{{photo.name}}</li>
+                            <div *ngIf="photoOverlay">
+                              <ul class="photos">
+                                  <li class="photo">
+                                      <div class="overlay-kitty"></div>
+                                      <img [src]="photoOverlay" class="imgOverlayed" />
+                                  </li>
+                                  <li class="photo">
+                                      <div class="overlay-crown"></div>
+                                      <img [src]="photoOverlay" class="imgOverlayed" />
+                                  </li>
+                                  <li class="photo">
+                                      <div class="overlay-bubbles"></div>
+                                      <img [src]="photoOverlay" class="imgOverlayed" />
+                                  </li>
                               </ul>
                             </div>
                         </ul>
