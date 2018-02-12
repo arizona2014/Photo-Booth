@@ -45,3 +45,41 @@ img {
     text-align: center;
     top: 180px;
 }
+
+.overlay-kitty {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    float: left;
+    text-align: center;
+    background-size:cover;
+    background-image:url("/assets/kitty.png");
+    background-position:50% 50%;
+}
+
+.overlay-crown {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    float: left;
+    text-align: center;
+    background-size:cover;
+    background-image:url("/assets/crown.png");
+    background-position:50% 50%;
+}
+
+.overlay-bubbles {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    float: left;
+    text-align: center;
+    background-size:cover;
+    background-image:url("/assets/bubbles.png");
+    background-position:50% 50%;
+}
+
+.imgOverlayed {
+    width: 400px;
+    height: 400px;
+}
