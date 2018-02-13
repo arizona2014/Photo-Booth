@@ -89,3 +89,18 @@ img {
     left: 165px;
     bottom: -45px;
 }
+
+ack-webcam {
+    margin-left: 35%;
+}
+
+.shoot {
+    position: relative;
+    float: left;
+    width: 100px;
+    margin-left: 42%;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    left: 0;
+    bottom: 0;
+}
