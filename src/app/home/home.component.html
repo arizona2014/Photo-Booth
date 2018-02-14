@@ -57,19 +57,53 @@
                                   <li class="photo">
                                       <div class="overlay-kitty"></div>
                                       <img [src]="photoOverlay" class="imgOverlayed" />
-                                      <button color="accent" mat-raised-button>Pick me</button>
+                                      <button color="accent" mat-raised-button>Pick me & Send</button>
                                   </li>
                                   <li class="photo">
                                       <div class="overlay-crown"></div>
                                       <img [src]="photoOverlay" class="imgOverlayed" />
-                                      <button color="accent" mat-raised-button>Pick me</button>
+                                      <button color="accent" mat-raised-button>Pick me & Send</button>
                                   </li>
                                   <li class="photo">
                                       <div class="overlay-bubbles"></div>
                                       <img [src]="photoOverlay" class="imgOverlayed" />
-                                      <button color="accent" mat-raised-button>Pick me</button>
+                                      <button color="accent" mat-raised-button>Pick me & Send</button>
                                   </li>
                               </ul>
+                            </div>
+                        </ul>
+                    </mat-tab>
+                    <mat-tab>
+                        <ul>
+                            <ng-template mat-tab-label>
+                                Settings
+                            </ng-template>
+                            <div>
+                                <form class="form-horizontal"  [formGroup]="settingsForm" >
+                                    <ul>
+                                        <li class="form-group">
+                                            <mat-form-field>
+                                                <input type="text"
+                                                   matInput
+                                                   formControlName="senderEmail"
+                                                   id="sender"
+                                                   placeholder="Sender Email">
+                                            </mat-form-field>
+                                        </li>
+                                        <li class="form-group">
+                                            <mat-form-field>
+                                                <input type="text"
+                                                   matInput
+                                                   formControlName="receiverEmail"
+                                                   id="receiver"
+                                                   placeholder="Receiver Email">
+                                            </mat-form-field>
+                                        </li>
+                                        <li class="form-group">
+                                            <button type="submit" class="btn btn-primary">OK</button>
+                                        </li>
+                                    </ul>
+                                </form>
                             </div>
                         </ul>
                     </mat-tab>
