@@ -4,6 +4,7 @@ import { AngularFirestore } from 'angularfire2/firestore';
 import { WebCamComponent } from 'ack-angular-webcam';
 import { Http } from '@angular/http';
 import { AngularFireStorage } from 'angularfire2/storage';
+import { FormGroup, FormControl, Validators } from "@angular/forms";
 
 @Component({
   selector: 'app-home',
@@ -20,12 +21,12 @@ export class HomeComponent implements OnInit {
   public photosUploaded: any ;
   public photoOverlay: any ;
   public options: any ;
+  private settingsForm: FormGroup;
 
   constructor(  private _service:AuthenticateService,
                 private _db: AngularFirestore,
                 private storage: AngularFireStorage ) { }
 
-  //
   genBase64(){
       this.webcam.getBase64()
           .then( base=>this.base64=base)
@@ -79,6 +80,10 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.settingsForm = new FormGroup({
+        senderEmail: new FormControl('andy.lisac@gmail.com', Validators.required),
+        receiverEmail: new FormControl('example@test.com', Validators.required)
+    });
     this.storageRef = this.storage.storage.ref();
     this._service.checkCredentials();
     this.loadPhotosNames();
