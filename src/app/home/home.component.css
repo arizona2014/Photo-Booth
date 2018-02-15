@@ -90,6 +90,13 @@ img {
     bottom: -44px;
 }
 
+.mat-form-field {
+    display: inline-block;
+    position: relative;
+    text-align: left;
+    width: 300px;
+}
+
 ack-webcam {
     margin-left: 35%;
 }
@@ -103,4 +110,22 @@ ack-webcam {
     margin-bottom: 40px;
     left: 0;
     bottom: 0;
+}
+
+.form-horizontal {
+    background-color: #fff;
+    box-shadow: none;
+    border-radius: 0px;
+    border: none;
+}
+
+
+.form-horizontal  ul {
+    list-style: none;
+}
+
+.form-horizontal  .mat-raised-button {
+    position: relative;
+    left: 0px;
+    top: 0px;
 }
