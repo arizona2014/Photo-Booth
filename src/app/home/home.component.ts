@@ -5,6 +5,8 @@ import { WebCamComponent } from 'ack-angular-webcam';
 import { Http } from '@angular/http';
 import { AngularFireStorage } from 'angularfire2/storage';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
+import * as html2canvas from "html2canvas";
+import * as jsPDF from 'jspdf';
 
 @Component({
   selector: 'app-home',
@@ -40,6 +42,27 @@ export class HomeComponent implements OnInit {
       const theFileName = 'selfie-' + timestamp.toString() + '.png';
       this.webcam.captureAsFormData({fileName: theFileName })
           .then( formData=>this.upload(this.base64, theFileName));
+  }
+
+  generatePDF(s:string) {
+
+      html2canvas(document.getElementById(s)).then(function(canvas) {
+
+          var imgData = canvas.toDataURL("image/png");
+
+          let doc = new jsPDF();
+          let specialElementHandlers = {
+              '#editor': function (element, renderer) {
+                  return true;
+              }
+          }
+
+          doc.addImage(imgData);
+          doc.save('test.pdf');
+
+
+      });
+
   }
 
   // The actual function which uploads the image
