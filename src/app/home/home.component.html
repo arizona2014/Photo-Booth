@@ -54,20 +54,20 @@
                             </ng-template>
                             <div *ngIf="photoOverlay">
                               <ul class="photos">
-                                  <li class="photo">
+                                  <li id="kittySelfie" class="photo">
                                       <div class="overlay-kitty"></div>
                                       <img [src]="photoOverlay" class="img-overlay" />
-                                      <button color="accent" mat-raised-button>Pick me & Send</button>
+                                      <button color="accent" (click)="generatePDF('kittySelfie')" mat-raised-button>Pick me & Send</button>
                                   </li>
-                                  <li class="photo">
+                                  <li id="crownSelfie" class="photo">
                                       <div class="overlay-crown"></div>
                                       <img [src]="photoOverlay" class="img-overlay" />
-                                      <button color="accent" mat-raised-button>Pick me & Send</button>
+                                      <button color="accent" (click)="generatePDF('crownSelfie')" mat-raised-button>Pick me & Send</button>
                                   </li>
-                                  <li class="photo">
+                                  <li id="bubblesSelfie" class="photo">
                                       <div class="overlay-bubbles"></div>
                                       <img [src]="photoOverlay" class="img-overlay" />
-                                      <button color="accent" mat-raised-button>Pick me & Send</button>
+                                      <button color="accent" (click)="generatePDF('bubblesSelfie')" mat-raised-button>Pick me & Send</button>
                                   </li>
                               </ul>
                             </div>
@@ -100,7 +100,7 @@
                                             </mat-form-field>
                                         </li>
                                         <li class="form-group">
-                                            <button type="submit" class="btn btn-primary">OK</button>
+                                            <button mat-raised-button type="submit" class="btn btn-primary">OK</button>
                                         </li>
                                     </ul>
                                 </form>
