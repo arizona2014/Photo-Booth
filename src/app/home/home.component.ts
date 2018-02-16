@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
           .then( formData=>this.upload(this.base64, theFileName));
   }
 
-  generatePDF(s:string) {
+/*  generatePDF(s:string) {
 
       html2canvas(document.getElementById(s)).then(function(canvas) {
 
@@ -63,7 +63,7 @@ export class HomeComponent implements OnInit {
 
       });
 
-  }
+  }*/
 
   // The actual function which uploads the image
   upload(data, fileName){
