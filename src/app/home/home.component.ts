@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
   public photosUploaded: any ;
   public photoOverlay: any ;
   public options: any ;
-  private settingsForm: FormGroup;
+/*  private settingsForm: FormGroup;*/
 
   constructor(  private _service:AuthenticateService,
                 private _db: AngularFirestore,
@@ -103,10 +103,10 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.settingsForm = new FormGroup({
+/*    this.settingsForm = new FormGroup({
         senderEmail: new FormControl('andy.lisac@gmail.com', Validators.required),
         receiverEmail: new FormControl('example@test.com', Validators.required)
-    });
+    });*/
     this.storageRef = this.storage.storage.ref();
     this._service.checkCredentials();
     this.loadPhotosNames();
