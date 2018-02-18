@@ -8,6 +8,7 @@
     "start:open": "ng serve --open",
     "build": "ng build --prod",
     "test": "ng test",
+    "test:coverage": "ng test --code-coverage --reporters=coverage-istanbul",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
