@@ -8,6 +8,7 @@ import { AngularFireModule } from "angularfire2";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from "@angular/core";
 import { AngularFireStorage } from 'angularfire2/storage';
+import { LoginComponent } from "../login/login.component";
 
 describe('HomeComponent', () => {
 
@@ -25,7 +26,11 @@ describe('HomeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ RouterTestingModule, MatIconModule, MatTabsModule, MatCardModule, AngularFireModule.initializeApp(firebaseConfig), AngularFirestoreModule, BrowserAnimationsModule  ],
+      imports: [
+          RouterTestingModule.withRoutes([
+              { path:'login', component: HomeComponent }
+          ]),
+          MatIconModule, MatTabsModule, MatCardModule, AngularFireModule.initializeApp(firebaseConfig), AngularFirestoreModule, BrowserAnimationsModule  ],
       declarations: [ HomeComponent ],
       providers: [ AngularFirestore, AuthenticateService, AngularFireStorage ],
       schemas: [
