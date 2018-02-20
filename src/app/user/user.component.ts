@@ -14,7 +14,6 @@ export class UserComponent implements OnInit {
       this.password = '';
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
 }
