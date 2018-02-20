@@ -8,7 +8,6 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 describe('UserComponent', () => {
 
-
   let firebaseConfig = {
     apiKey: "AIzaSyCaMhk0ZziaHn6QvAzBlCJA2vwFY0lx-iE",
     authDomain: "photobooth-f83ed.firebaseapp.com",
