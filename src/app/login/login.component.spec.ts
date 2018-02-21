@@ -8,7 +8,7 @@ import { AngularFirestore, AngularFirestoreModule } from "angularfire2/firestore
 import { AngularFireModule } from "angularfire2";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
-describe('LoginComponent', () => {
+describe('LoginComponent ', () => {
 
   let firebaseConfig = {
     apiKey: "AIzaSyCaMhk0ZziaHn6QvAzBlCJA2vwFY0lx-iE",
