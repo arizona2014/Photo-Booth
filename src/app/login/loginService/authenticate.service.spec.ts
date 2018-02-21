@@ -7,7 +7,7 @@ import { AngularFirestore, AngularFirestoreModule } from "angularfire2/firestore
 import { AngularFireModule } from "angularfire2";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
-describe('AuthenticateService', () => {
+describe('AuthenticateService ', () => {
 
 
   let firebaseConfig = {
@@ -26,7 +26,7 @@ describe('AuthenticateService', () => {
     });
   });
 
-  it('Auth Service should be created', inject([AuthenticateService], (service: AuthenticateService) => {
+  it('should be created', inject([AuthenticateService], (service: AuthenticateService) => {
     expect(service).toBeTruthy();
   }));
 
