@@ -1,0 +1,114 @@
+<div class="app-content">
+    <div class="group">
+        <form>
+      <span class="app-action">
+        <button mat-fab (click)="logout()"><mat-icon>exit_to_app</mat-icon></button>
+      </span><br><br>
+            <mat-card>
+                <mat-tab-group  (selectedTabChange)="tabChange($event)">
+                    <mat-tab>
+                        <ul>
+                            <ng-template mat-tab-label>
+                                Take a selfie
+                            </ng-template>
+                            <div>
+
+                                <ack-webcam
+                                        [(ref)]   = "webcam"
+                                        [options] = "options"
+                                        (success) = "onCamSuccess($event)"
+                                        (catch)   = "onCamError($event)"
+                                ></ack-webcam>
+                                <button mat-raised-button color="primary" class="shoot" (click)="shoot()"> Shoot </button>
+
+                            </div>
+                        </ul>
+                    </mat-tab>
+                    <mat-tab>
+                        <ul>
+                            <ng-template mat-tab-label>
+                                My photos
+                            </ng-template>
+                            <div>
+                              <ul class="photos">
+                                <li class="photo" *ngFor="let photo of photosUploaded | async">
+                                    <div class="button-row">
+                                        <button (click)="makeCard(photo)" mat-icon-button color="accent">
+                                            <mat-icon aria-label="Make card">card_giftcard</mat-icon>
+                                        </button>
+                                        <button (click)="deletePhoto(photo)" mat-icon-button color="primary">
+                                            <mat-icon aria-label="Delete photo">delete</mat-icon>
+                                        </button>
+                                    </div>
+                                    <span><img [src]="photo.url " /></span>
+                                    <h3>{{photo.name}}</h3>
+                                </li>
+                              </ul>
+                            </div>
+                        </ul>
+                    </mat-tab>
+                    <mat-tab>
+                        <ul>
+                            <ng-template mat-tab-label>
+                              My effects
+                            </ng-template>
+                            <div *ngIf="photoOverlay">
+                              <ul class="photos">
+                                  <li id="kittySelfie" class="photo">
+                                      <div class="overlay-kitty"></div>
+                                      <img [src]="photoOverlay" class="img-overlay" />
+                                      <!--<button color="accent" (click)="generatePDF('kittySelfie')" mat-raised-button>Pick me & Send</button>-->
+                                  </li>
+                                  <li id="crownSelfie" class="photo">
+                                      <div class="overlay-crown"></div>
+                                      <img [src]="photoOverlay" class="img-overlay" />
+                                      <!--<button color="accent" (click)="generatePDF('crownSelfie')" mat-raised-button>Pick me & Send</button>-->
+                                  </li>
+                                  <li id="bubblesSelfie" class="photo">
+                                      <div class="overlay-bubbles"></div>
+                                      <img [src]="photoOverlay" class="img-overlay" />
+                                      <!--<button color="accent" (click)="generatePDF('bubblesSelfie')" mat-raised-button>Pick me & Send</button>-->
+                                  </li>
+                              </ul>
+                            </div>
+                        </ul>
+                    </mat-tab>
+                    <!--<mat-tab>
+                        <ul>
+                            <ng-template mat-tab-label>
+                                Settings
+                            </ng-template>
+                            <div>
+                                <form class="form-horizontal"  [formGroup]="settingsForm" >
+                                    <ul>
+                                        <li class="form-group">
+                                            <mat-form-field>
+                                                <input type="text"
+                                                   matInput
+                                                   formControlName="senderEmail"
+                                                   id="sender"
+                                                   placeholder="Sender Email">
+                                            </mat-form-field>
+                                        </li>
+                                        <li class="form-group">
+                                            <mat-form-field>
+                                                <input type="text"
+                                                   matInput
+                                                   formControlName="receiverEmail"
+                                                   id="receiver"
+                                                   placeholder="Receiver Email">
+                                            </mat-form-field>
+                                        </li>
+                                        <li class="form-group">
+                                            <button mat-raised-button type="submit" class="btn btn-primary">OK</button>
+                                        </li>
+                                    </ul>
+                                </form>
+                            </div>
+                        </ul>
+                    </mat-tab>-->
+                </mat-tab-group>
+            </mat-card>
+        </form>
+    </div>
+</div>

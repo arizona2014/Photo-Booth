@@ -1,0 +1,131 @@
+.app-content{
+    margin: 100px;
+    padding: 50px;
+
+}
+
+form {
+    width: auto;
+    height: auto;
+    margin: auto;
+    /*padding: 3em 2em 2em 2em;*/
+    background: #fafafa;
+    border: 1px solid #ebebeb;
+    box-shadow: rgba(0,0,0,0.14902) 0px 1px 1px 0px,rgba(0,0,0,0.09804) 0px 1px 2px 0px;
+    border-radius: 14%;
+}
+
+.group {
+    position: relative;
+    margin-bottom: 45px;
+
+}
+
+.photos {
+    list-style: none;
+}
+
+.photo {
+    position: relative;
+    width: auto;
+    float: left;
+    margin: 0px 20px 100px;
+    text-align: center;
+}
+
+img {
+    width: 300px;
+    height: auto;
+}
+
+.button-row {
+    position: absolute;
+    background-color: rgba(255, 255, 255, .3);
+    width: 300px;
+    text-align: center;
+    top: 180px;
+}
+
+.overlay-kitty {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    float: left;
+    text-align: center;
+    background-size:cover;
+    background-image:url("/assets/kitty.png");
+    background-position:50% 50%;
+}
+
+.overlay-crown {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    float: left;
+    text-align: center;
+    background-size:cover;
+    background-image:url("/assets/crown.png");
+    background-position:50% 50%;
+}
+
+.overlay-bubbles {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    float: left;
+    text-align: center;
+    background-size:cover;
+    background-image:url("/assets/bubbles.png");
+    background-position:50% 50%;
+}
+
+.img-overlay {
+    width: 400px;
+    height: 400px;
+}
+
+.mat-raised-button {
+    position: absolute;
+    left: 165px;
+    bottom: -44px;
+}
+
+.mat-form-field {
+    display: inline-block;
+    position: relative;
+    text-align: left;
+    width: 300px;
+}
+
+ack-webcam {
+    margin-left: 35%;
+}
+
+.shoot {
+    position: relative;
+    float: left;
+    width: 100px;
+    margin-left: 42%;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    left: 0;
+    bottom: 0;
+}
+
+.form-horizontal {
+    background-color: #fff;
+    box-shadow: none;
+    border-radius: 0px;
+    border: none;
+}
+
+
+.form-horizontal  ul {
+    list-style: none;
+}
+
+.form-horizontal  .mat-raised-button {
+    position: relative;
+    left: 0px;
+    top: 0px;
+}
