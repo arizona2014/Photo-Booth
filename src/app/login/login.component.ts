@@ -17,7 +17,7 @@ export class LoginComponent {
 
     login() {
         if(!this._service.login(this.user)) {
-            this.errorMsg = 'Failed to login! try again ...';
+            this.errorMsg = 'Failed to login ! try again ... ';
         }
     }
 
