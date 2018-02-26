@@ -23,7 +23,6 @@ export class HomeComponent implements OnInit {
   public photosUploaded: any ;
   public photoOverlay: any ;
   public options: any ;
-/*  private settingsForm: FormGroup;*/
 
   constructor(  private _service:AuthenticateService,
                 private _db: AngularFirestore,
@@ -43,27 +42,6 @@ export class HomeComponent implements OnInit {
       this.webcam.captureAsFormData({fileName: theFileName })
           .then( formData=>this.upload(this.base64, theFileName));
   }
-
-/*  generatePDF(s:string) {
-
-      html2canvas(document.getElementById(s)).then(function(canvas) {
-
-          var imgData = canvas.toDataURL("image/png");
-
-          let doc = new jsPDF();
-          let specialElementHandlers = {
-              '#editor': function (element, renderer) {
-                  return true;
-              }
-          }
-
-          doc.addImage(imgData);
-          doc.save('test.pdf');
-
-
-      });
-
-  }*/
 
   // The actual function which uploads the image
   upload(data, fileName){
@@ -90,7 +68,7 @@ export class HomeComponent implements OnInit {
       //noinspection TypeScriptUnresolvedFunction
       this._db.collection('photos').add(data)
       .then(function(docRef) {
-          console.log("Document written with ID: ", docRef.id);
+          console.log("Document written with ID : ", docRef.id);
       })
       .catch(function(error) {
           console.error("Error adding document: ", error);
@@ -103,10 +81,6 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-/*    this.settingsForm = new FormGroup({
-        senderEmail: new FormControl('andy.lisac@gmail.com', Validators.required),
-        receiverEmail: new FormControl('example@test.com', Validators.required)
-    });*/
     this.storageRef = this.storage.storage.ref();
     this._service.checkCredentials();
     this.loadPhotosNames();
