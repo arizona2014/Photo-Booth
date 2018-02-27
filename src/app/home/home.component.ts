@@ -2,16 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { AuthenticateService } from "../login/loginService/authenticate.service";
 import { AngularFirestore } from 'angularfire2/firestore';
 import { WebCamComponent } from 'ack-angular-webcam';
-import { Http } from '@angular/http';
 import { AngularFireStorage } from 'angularfire2/storage';
-import { FormGroup, FormControl, Validators } from "@angular/forms";
-import * as html2canvas from "html2canvas";
-import * as jsPDF from 'jspdf';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  providers: [ AuthenticateService, Http ],
+  providers: [ AuthenticateService ],
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
