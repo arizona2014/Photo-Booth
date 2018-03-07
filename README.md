@@ -3,7 +3,7 @@ This is an Angular5/Firestore/AngularMaterial application used to make paper car
 
 ## Install the CLI globally
 
-Before running the server, you should have Angular CLI installed
+Before running the server, you should have Angular CLI installed. For that please type `npm i -g @angular/cli` in your console window. 
 
 ## Development server
 
