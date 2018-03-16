@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFirestore } from 'angularfire2/firestore';
+import { isUndefined } from "util";
 
 let users: any = [];
 
@@ -29,9 +30,11 @@ export class AuthenticateService {
         return false;
     }
 
-    checkCredentials() {
-        if (localStorage.getItem("user") === null){
-            this._router.navigate(['/login']);
+    isAuthenticated() {
+        if (localStorage.getItem("user") === null && isUndefined(localStorage.getItem("user"))){
+            return false;
+        }  else {
+            return true;
         }
     }
 }
