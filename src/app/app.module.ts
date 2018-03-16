@@ -5,7 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from "./app-routing.module";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { HttpClientModule } from "@angular/common/http";
+import {HttpClientModule, HttpClient} from '@angular/common/http';
 import {
     MatButtonModule,
     MatToolbarModule,
@@ -35,6 +35,8 @@ import { AngularFirestoreModule } from "angularfire2/firestore";
 import { environment } from '../environments/environment';
 import { WebCamModule } from 'ack-angular-webcam';
 import { AngularFireStorageModule } from 'angularfire2/storage';
+import { AuthGuardService } from "./auth-guard.service";
+import { AuthenticateService } from "./login/loginService/authenticate.service";
 
 @NgModule({
   declarations: [
@@ -75,6 +77,7 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
     MatSelectModule,
     MatDialogModule
   ],
+  providers: [ AuthGuardService, AuthenticateService ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,
     NO_ERRORS_SCHEMA
