@@ -3,11 +3,11 @@ import { AuthenticateService } from "../login/loginService/authenticate.service"
 import { AngularFirestore } from 'angularfire2/firestore';
 import { WebCamComponent } from 'ack-angular-webcam';
 import { AngularFireStorage } from 'angularfire2/storage';
+import { AuthGuardService } from "../auth-guard.service";
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  providers: [ AuthenticateService ],
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
@@ -78,7 +78,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.storageRef = this.storage.storage.ref();
-    this._service.checkCredentials();
     this.loadPhotosNames();
   }
 
