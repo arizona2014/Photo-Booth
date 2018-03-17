@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { AuthenticateService } from "./loginService/authenticate.service";
 import { UserComponent } from "../user/user.component";
+import { AuthGuardService } from "../auth-guard.service";
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
-  providers : [AuthenticateService]
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
 
